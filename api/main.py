@@ -62,7 +62,3 @@ def callback(request: Request):
 def main_app():
     # Check if the user is authenticated (e.g., by verifying token in the session)
     return {"message": "Welcome to the Shopify App"}
-
-# Vercel requires an ASGI-compatible application
-from mangum import Mangum
-handler = Mangum(app)
