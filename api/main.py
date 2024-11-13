@@ -9,7 +9,7 @@ SHOPIFY_API_KEY = '8ff194747831deaed9c0542462366a9e'
 SHOPIFY_API_SECRET = 'c6cceed16f61f22e4d62ba9379da55e8'
 REDIRECT_URI = "https://app-public-rust.vercel.app/shopify/callback"
 
-# Step 1: Installation endpoint
+# Basic ping endpoint for testing
 @app.get("/ping")
 def ping():
     return {"message": "pong"}
@@ -61,11 +61,6 @@ def callback(request: Request):
 @app.get("/app")
 def main_app():
     # Check if the user is authenticated (e.g., by verifying token in the session)
-    return {"message": "Welcome to the Shopify App"}
-
-# Vercel requires an ASGI-compatible application
-from mangum import Mangum
-handler = Mangum(app)
     return {"message": "Welcome to the Shopify App"}
 
 # Vercel requires an ASGI-compatible application
