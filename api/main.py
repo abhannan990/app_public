@@ -25,7 +25,7 @@ def install(request: Request, shop: str = None):
     
     # Redirect to Shopify OAuth authorization page
     oauth_url = (
-        f"https://{shop}.myshopify.com/admin/oauth/authorize?"
+        f"https://{shop}/admin/oauth/authorize?"
         f"client_id={SHOPIFY_API_KEY}&scope=read_products,write_orders&redirect_uri={REDIRECT_URI}"
     )
     return RedirectResponse(url=oauth_url)
