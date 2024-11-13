@@ -5,9 +5,9 @@ import requests
 
 app = FastAPI()
 
-SHOPIFY_API_KEY = os.getenv("SHOPIFY_API_KEY")
-SHOPIFY_API_SECRET = os.getenv("SHOPIFY_API_SECRET")
-REDIRECT_URI = "https://yourappdomain.vercel.app/shopify/callback"
+SHOPIFY_API_KEY = '8ff194747831deaed9c0542462366a9e'
+SHOPIFY_API_SECRET = 'c6cceed16f61f22e4d62ba9379da55e8'
+REDIRECT_URI = "https://app-public-rust.vercel.app/shopify/callback"
 
 # Step 1: Installation endpoint
 @app.get("/install")
