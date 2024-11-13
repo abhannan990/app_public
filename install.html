@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Install Shopify App</title>
+  <script>
+    function installApp() {
+      const storeName = document.getElementById("store-name").value;
+      if (storeName) {
+        window.location.href = `https://yourappdomain.vercel.app/install?shop=${storeName}.myshopify.com`;
+      } else {
+        alert("Please enter your Shopify store name.");
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Install Shopify App</h1>
+  <label for="store-name">Enter your Shopify store name:</label>
+  <input type="text" id="store-name" placeholder="example-store" required>
+  <button onclick="installApp()">Install</button>
+</body>
+</html>
