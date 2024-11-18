@@ -63,4 +63,4 @@ def main_app():
     # Check if the user is authenticated (e.g., by verifying token in the session)
    # Store access_token securely and redirect to the app's main interface
     # Assuming you have some way of managing sessions for authenticated users
-    return RedirectResponse("https://datatram.ai/dashboard")
+    return RedirectResponse("https://datatram.ai/")
