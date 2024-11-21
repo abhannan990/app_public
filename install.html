@@ -6,9 +6,10 @@
   <title>Install Shopify App</title>
   <script>
     function installApp() {
-      const storeName = document.getElementById("store-name").value;
+      const storeName = document.getElementById("store-name").value.trim();
       if (storeName) {
-        window.location.href = `https://app-public-rust.vercel.app/install?shop=${storeName}.myshopify.com`;
+        // Redirect to the backend OAuth flow
+        window.location.href = `http://127.0.0.1:8000/install?shop=${storeName}.myshopify.com`;
       } else {
         alert("Please enter your Shopify store name.");
       }
