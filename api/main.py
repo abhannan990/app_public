@@ -15,14 +15,14 @@ def ping():
     return {"message": "pong"}
 
 # Step 1: Installation endpoint
+# Step 1: Installation endpoint
 @app.get("/install")
 def install(request: Request, shop: str = None):
     if not shop:
-        # Serve the HTML file if the shop parameter is missing
         with open("install.html", "r") as f:
             html_content = f.read()
         return HTMLResponse(content=html_content, status_code=200)
-    
+
     # Redirect to Shopify OAuth authorization page
     oauth_url = (
         f"https://{shop}/admin/oauth/authorize?"
@@ -36,7 +36,7 @@ def callback(request: Request):
     params = request.query_params
     code = params.get("code")
     shop = params.get("shop")
-    
+
     if not code or not shop:
         raise HTTPException(status_code=400, detail="Invalid callback parameters")
 
@@ -50,17 +50,10 @@ def callback(request: Request):
 
     if response.status_code == 200:
         access_token = response.json().get("access_token")
-        # Store access_token associated with the shop in a database (pseudo code)
+        # Save the access_token in your database (pseudo code)
         # save_access_token(shop, access_token)
-        # Redirect to the app's main page or dashboard
-        return RedirectResponse(url="/app")
+
+        # Redirect to datatram.ai after successful installation
+        return RedirectResponse(url="https://datatram.ai")
     else:
         raise HTTPException(status_code=response.status_code, detail="OAuth token exchange failed")
-
-# Protected endpoint that requires authentication
-@app.get("/app")
-def main_app():
-    # Check if the user is authenticated (e.g., by verifying token in the session)
-   # Store access_token securely and redirect to the app's main interface
-    # Assuming you have some way of managing sessions for authenticated users
-    return RedirectResponse("https://datatram.ai/")
